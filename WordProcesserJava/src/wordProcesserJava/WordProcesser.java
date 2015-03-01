@@ -24,7 +24,7 @@ public class WordProcesser
 		
 		//init gui objects
 		mainGUITextFields(mainGUI);
-		
+		mainGUIMenuBar(mainGUI);
 		
 		
 		//exit javaw.exe on close
@@ -53,6 +53,12 @@ public class WordProcesser
 		grid.fill = GridBagConstraints.BOTH;
 		grid.insets = new Insets(10, 0, 0, 0);
 		mainGUI.add(textAreaPane, grid);
+	}
+	
+
+	public void mainGUIMenuBar(JFrame mainGUI)
+	{
+		JMenuBar mainMenuBar = new JMenuBar();
 	}
 	
 }
