@@ -6,8 +6,7 @@ import java.awt.event.*;
 
 public class WordProcesser 
 {
-	static JTextArea mainTextArea = new JTextArea(40, 40);
-	
+
 	public static void main(String[] args)
 	{
 		new WordProcesser();
@@ -17,16 +16,15 @@ public class WordProcesser
 	{
 		//init main gui
 		JFrame mainGUI = new JFrame();
-		GridBagConstraints grid = new GridBagConstraints();
-		mainGUI.getContentPane().setLayout(new GridBagLayout());
-		mainGUI.setResizable(true);
-		mainGUI.setSize(500, 500);
 		
-		//textfields
-		mainTextArea.setLineWrap(true);
-		grid.gridx = 0;
-		grid.gridy = 0;
-		mainGUI.add(mainTextArea, grid);
+		mainGUI.getContentPane().setLayout(new GridBagLayout());
+		mainGUI.setTitle("JavaPad");
+		mainGUI.setResizable(true);
+		mainGUI.setSize(800, 600);
+		
+		//init gui objects
+		mainGUITextFields(mainGUI);
+		
 		
 		
 		//exit javaw.exe on close
@@ -37,7 +35,24 @@ public class WordProcesser
 			}
 		});
 		
-		mainGUI.pack();
+//		mainGUI.pack();
 		mainGUI.setVisible(true);
 	}
+	
+	public void mainGUITextFields(JFrame mainGUI)
+	{
+		GridBagConstraints grid = new GridBagConstraints();
+		
+		JTextArea mainTextArea = new JTextArea(0, 0);
+		JScrollPane textAreaPane = new JScrollPane(mainTextArea);
+		mainTextArea.setLineWrap(true);
+		grid.gridx = 0;
+		grid.gridy = 0;
+		grid.weightx = 2;
+		grid.weighty = 1;
+		grid.fill = GridBagConstraints.BOTH;
+		grid.insets = new Insets(10, 0, 0, 0);
+		mainGUI.add(textAreaPane, grid);
+	}
+	
 }
